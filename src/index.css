@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Shadcn UI Colors */
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-card: #09090b;
+  --color-card-foreground: #fafafa;
+  --color-popover: #09090b;
+  --color-popover-foreground: #fafafa;
+  --color-primary: #fafafa;
+  --color-primary-foreground: #18181b;
+  --color-secondary: #27272a;
+  --color-secondary-foreground: #fafafa;
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #27272a;
+  --color-accent-foreground: #fafafa;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #27272a;
+  --color-input: #27272a;
+  --color-ring: #d4d4d8;
+  
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply antialiased bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom Prose Styles for Markdown - Dark Mode Focused */
+.prose {
+  @apply text-muted-foreground leading-relaxed;
+}
+
+.prose pre {
+  @apply overflow-x-auto my-6 border border-border bg-black/50 rounded-xl p-4 shadow-sm;
+}
+
+.prose code {
+  @apply font-mono text-sm text-blue-400 bg-secondary px-1.5 py-0.5 rounded;
+}
+
+.prose p {
+  @apply mb-4 last:mb-0;
+}
+
+.prose ul, .prose ol {
+  @apply mb-4 ml-6 list-outside;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  @apply mt-8 mb-4 first:mt-0 text-foreground font-bold font-display tracking-tight text-white;
+}
+
+.prose h1 { @apply text-2xl; }
+.prose h2 { @apply text-xl; }
+.prose h3 { @apply text-lg; }
+
+.prose strong {
+  @apply text-foreground font-bold;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-muted pl-4 italic text-muted-foreground my-4;
+}
+
+.prose table {
+  @apply w-full border-collapse my-6;
+}
+
+.prose th {
+  @apply bg-secondary border border-border p-3 text-left text-foreground font-bold text-sm;
+}
+
+.prose td {
+  @apply border border-border p-3 text-sm;
+}
+
+/* Scrollbar styling inspired by Shadcn/Zinc */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted/80;
+}
+
+/* Animation utilities for Shadcn look */
+.animate-in {
+  animation: in 0.2s ease-out;
+}
+
+@keyframes in {
+  from { opacity: 0; transform: translateY(4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
